@@ -10,8 +10,7 @@ get used to reading its API documentation.
 3. Become accustomed to using [NPM](https://www.npmjs.com/) to find and install
 JS libraries
 4. Learn to effectively pair program and use Git/Github as a collaboration tool.
-5. Lay the foundations for understanding the functional style of programming
-that JS lends itself so well to
+5. Lay the foundations for understanding the functional style of programming that JS lends itself so well to
 
 ## Workflow
 
@@ -42,6 +41,10 @@ A key requirement for this sprint is to get used to collaborating on a codebase 
 
 The Lowbar Sprint involves reimplementing a JS library as if you were its author. For Part 1 of this sprint (we'll be coming back to this in week 2), you'll need to reimplement the following methods:
 
+## Core
+
+These are the core functions you should aim to get finished;
+
 1. identity
 2. first
 3. last
@@ -51,20 +54,21 @@ The Lowbar Sprint involves reimplementing a JS library as if you were its author
 7. reject
 8. uniq
 9. map
-10. pluck
-11. reduce
-12. contains
-13. every
-14. some
-15. extends
-16. defaults
+10. contains
 
+You should be heavily referencing the APIs of the following;
 
-## Resources
+1. [Underscore](http://underscorejs.org/)
+2. [The Mocha Test Framework](https://mochajs.org/)
+3. [The Chai Assertion Library](http://chaijs.com/)
 
-You should be heavily referencing the APIs of the following:
+## Advanced
 
-1. [The Mocha Test Framework](https://mochajs.org/)
-2. [The Chai Assertion Library](http://chaijs.com/)
-3. [Sinon - spies, stubs & mocks](http://sinonjs.org/)
-4. [Underscore](http://underscorejs.org/)
+These are a little harder but will be very beneficial to try and complete.
+
+1. pluck
+2. reduce
+3. every
+4. some
+5. extends
+6. defaults
