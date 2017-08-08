@@ -15,6 +15,7 @@ _.last = function(arr, n) {
   if (n === undefined || n === 1) {
     return arr[arr.length - 1];
   }
+  return arr.slice(-n);
 };
 
 if (typeof module !== 'undefined') {

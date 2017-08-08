@@ -43,5 +43,10 @@ describe('_', function () {
       const result = _.last(arr);
       expect(result).to.eql(3);
     });
+    it('should return n number of items from end of array', function () {
+      const arr = [1, 2, 3, 4, 5];
+      const result = _.last(arr, 3);
+      expect(result).to.eql([3, 4, 5]);
+    });
   });
 });
