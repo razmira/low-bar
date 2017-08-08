@@ -11,6 +11,12 @@ _.first = function(arr, n) {
   return arr.slice(0, n);
 };
 
+_.last = function(arr, n) {
+  if (n === undefined || n === 1) {
+    return arr[arr.length - 1];
+  }
+};
+
 if (typeof module !== 'undefined') {
   module.exports = _;
 }

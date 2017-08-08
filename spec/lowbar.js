@@ -34,4 +34,14 @@ describe('_', function () {
       expect(result).to.eql([1, 2, 3]);
     });
   });
+  describe('#last', function () {
+    it('is a function', function() {
+      expect(_.last).to.be.a('function');
+    });
+    it('should return last item in the array', function () {
+      const arr = [1, 2, 3];
+      const result = _.last(arr);
+      expect(result).to.eql(3);
+    });
+  });
 });
