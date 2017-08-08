@@ -1,7 +1,7 @@
 var _ = {};
 
-_.identity = function() {
-  // your code here 
+_.identity = function(input) {
+  return input;
 };
 
 if (typeof module !== 'undefined') {
