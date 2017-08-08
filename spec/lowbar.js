@@ -90,5 +90,9 @@ describe('_', function () {
       const result = _.indexOf([1, 2, 3], 4);
       expect(result).to.equal(-1);
     });
+    it ('it should start search from 3rd argument (if passed)', function () {
+      const result = _.indexOf(['test', 1, 8, 3, 'test', 5, 6], 'test', 2);
+      expect(result).to.equal(4);
+    });
   });
 });
