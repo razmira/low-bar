@@ -86,5 +86,9 @@ describe('_', function () {
       result = _.indexOf(['ash', false, 2], false);
       expect(result).to.equal(1);
     });
+    it ('should return -1 if value is not present in array', function () {
+      const result = _.indexOf([1, 2, 3], 4);
+      expect(result).to.equal(-1);
+    });
   });
 });
