@@ -19,4 +19,14 @@ describe('_', function () {
       expect(result).to.equal('test');
     });
   });
+  describe('#first', function () {
+    it('is a function', function() {
+      expect(_.first).to.be.a('function');
+    });
+    it('should return first item in the array', function () {
+      const arr = [1, 2, 3];
+      const result = _.first(arr);
+      expect(result).to.eql(1);
+    });
+  });
 });
