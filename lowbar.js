@@ -18,6 +18,13 @@ _.last = function(arr, n) {
   return arr.slice(-n);
 };
 
+_.each = function(arr, iteratee) {
+  for (let i = 0; i < arr.length; i++) {
+    iteratee(arr[i], i, arr);
+  }
+  return arr;
+};
+
 if (typeof module !== 'undefined') {
   module.exports = _;
 }

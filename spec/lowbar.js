@@ -49,4 +49,18 @@ describe('_', function () {
       expect(result).to.eql([3, 4, 5]);
     });
   });
+  describe('#each', function () {
+    it('is a function', function() {
+      expect(_.each).to.be.a('function');
+    });
+    it('should count array items', function() {
+      const arr = ['a','b','c','d','e'];
+      let counter = 0;
+      const addToCounter = function() {
+        return counter++;
+      };
+      _.each(arr, addToCounter);
+      expect(counter).to.equal(arr.length);
+    });
+  });
 });
