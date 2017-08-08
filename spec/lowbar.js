@@ -28,5 +28,10 @@ describe('_', function () {
       const result = _.first(arr);
       expect(result).to.eql(1);
     });
+    it('should return n number of items from beggining of array', function () {
+      const arr = [1, 2, 3, 4, 5];
+      const result = _.first(arr, 3);
+      expect(result).to.eql([1, 2, 3]);
+    });
   });
 });
