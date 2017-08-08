@@ -62,5 +62,14 @@ describe('_', function () {
       _.each(arr, addToCounter);
       expect(counter).to.equal(arr.length);
     });
+    it('should return the array passed', function() {
+      const arr = ['a','b','c','d','e'];
+      let counter = 0;
+      const addToCounter = function() {
+        return counter++;
+      };
+      const result = _.each(arr, addToCounter);
+      expect(result).to.eql(arr);
+    });
   });
 });
