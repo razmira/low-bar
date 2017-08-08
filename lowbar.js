@@ -25,6 +25,13 @@ _.each = function(arr, iteratee) {
   return arr;
 };
 
+_.indexOf = function (arr, val, start) {
+  if (!start) return arr.indexOf(val);
+  let beginStrLength = arr.slice(0, start).length;
+  let resultIndex = arr.slice(start).indexOf(val); 
+  return resultIndex + beginStrLength;
+};
+
 if (typeof module !== 'undefined') {
   module.exports = _;
 }

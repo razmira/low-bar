@@ -72,4 +72,19 @@ describe('_', function () {
       expect(result).to.eql(arr);
     });
   });
+  describe('#indexOf', function () {
+    it('is a function', function() {
+      expect(_.indexOf).to.be.a('function');
+    });
+    it ('should return index value passed', function () {
+      let result = _.indexOf([1, 2, 3], 3);
+      expect(result).to.equal(2);
+
+      result = _.indexOf(['ash', 'adie'], 'adie');
+      expect(result).to.equal(1);
+
+      result = _.indexOf(['ash', false, 2], false);
+      expect(result).to.equal(1);
+    });
+  });
 });
