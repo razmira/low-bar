@@ -119,4 +119,13 @@ describe('_', function () {
       expect(result).to.eql([2, 4, 6]);
     });
   });
+  describe('#reject', function () {
+    it('is a function', function() {
+      expect(_.reject).to.be.a('function');
+    });
+    it('should return an array', function() {
+      const result = _.reject();
+      expect(result).to.be.an('array');
+    });
+  });
 });

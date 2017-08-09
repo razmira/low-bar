@@ -49,6 +49,18 @@ _.filter = function (list, predicate) {
   return truthArr;
 };
 
+_.reject = function (list, predicate) {
+  if (!list) return [];
+  let falseArr = [];
+  if (Array.isArray(list)) {
+    for (let i = 0; i < list.length; i++) {
+      let isTrue = predicate(list[i]);
+      if (!isTrue) falseArr.push(list[i]);
+    }
+  }
+  return falseArr;
+};
+
 if (typeof module !== 'undefined') {
   module.exports = _;
 }
