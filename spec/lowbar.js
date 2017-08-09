@@ -107,7 +107,7 @@ describe('_', function () {
       let result = _.filter([1, 2, 3, 4, 5, 6], function(num) { return num % 2 == 0; });
       expect(result).to.eql([2, 4, 6]);
 
-      result = _.filter(['banana', 'apple', 'pear', 'banana'], function(str) { if (str === 'banana') return str });
+      result = _.filter(['banana', 'apple', 'pear', 'banana'], function(str) { if (str === 'banana') return str; });
       expect(result).to.eql(['banana', 'banana']);
     });
     it('should return an array of all the values that pass a truth test (predicate) when passed an object', function () {
@@ -129,6 +129,14 @@ describe('_', function () {
     });
     it('should return an array of all the values that fail a truth test (predicate)', function () {
       const result = _.reject([1, 2, 3, 4, 5, 6], function(num) { return num % 2 == 0; });
+      expect(result).to.eql([1, 3, 5]);
+    });
+    it('should return an array of all the values that fail a truth test (predicate) when passed an object', function () {
+      const result = _.reject({
+        'apple': 1, 'banana': 2,'pear': 3, 'kiwi': 4, 'stone': 5, 'tree': 6
+      }, function(elem) { 
+        return elem % 2 == 0; 
+      });
       expect(result).to.eql([1, 3, 5]);
     });
   });

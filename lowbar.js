@@ -57,6 +57,11 @@ _.reject = function (list, predicate) {
       let isTrue = predicate(list[i]);
       if (!isTrue) falseArr.push(list[i]);
     }
+  } else if (typeof list === 'object') {
+    for (let key in list) {
+      let isTrue = predicate(list[key]);
+      if (!isTrue) falseArr.push(list[key]);
+    }
   }
   return falseArr;
 };
