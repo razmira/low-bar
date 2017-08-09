@@ -95,4 +95,13 @@ describe('_', function () {
       expect(result).to.equal(4);
     });
   });
+  describe('#filter', function () {
+    it('is a function', function() {
+      expect(_.filter).to.be.a('function');
+    });
+    it('should return an array', function() {
+      const result = _.filter();
+      expect(result).to.be.an('array');
+    });
+  });
 });

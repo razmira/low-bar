@@ -32,6 +32,18 @@ _.indexOf = function (arr, val, start) {
   return resultIndex + beginStrLength;
 };
 
+_.filter = function (list, predicate) {
+  if (!list) return [];
+  let truthArr = [];
+  if (Array.isArray(list)) {
+    for (let i = 0; i < list.length; i++) {
+      let isTrue = predicate(list[i]);
+      if (isTrue) truthArr.push(list[i]);
+    }
+  }
+    return truthArr;
+};
+
 if (typeof module !== 'undefined') {
   module.exports = _;
 }
