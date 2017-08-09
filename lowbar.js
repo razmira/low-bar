@@ -40,8 +40,13 @@ _.filter = function (list, predicate) {
       let isTrue = predicate(list[i]);
       if (isTrue) truthArr.push(list[i]);
     }
+  } else if (typeof list === 'object') {
+    for (let key in list) {
+      let isTrue = predicate(list[key]);
+      if (isTrue) truthArr.push(list[key]);
+    }
   }
-    return truthArr;
+  return truthArr;
 };
 
 if (typeof module !== 'undefined') {

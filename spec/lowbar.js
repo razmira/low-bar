@@ -110,5 +110,13 @@ describe('_', function () {
       result = _.filter(['banana', 'apple', 'pear', 'banana'], function(str) { if (str === 'banana') return str });
       expect(result).to.eql(['banana', 'banana']);
     });
+    it('should return an array of all the values that pass a truth test (predicate) when passed an object', function () {
+      const result = _.filter({
+        'apple': 1, 'banana': 2,'pear': 3, 'kiwi': 4, 'stone': 5, 'tree': 6
+      }, function(elem) { 
+        return elem % 2 == 0; 
+      });
+      expect(result).to.eql([2, 4, 6]);
+    });
   });
 });
