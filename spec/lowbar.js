@@ -103,5 +103,12 @@ describe('_', function () {
       const result = _.filter();
       expect(result).to.be.an('array');
     });
+    it('should return an array of all the values that pass a truth test (predicate)', function () {
+      let result = _.filter([1, 2, 3, 4, 5, 6], function(num) { return num % 2 == 0; });
+      expect(result).to.eql([2, 4, 6]);
+
+      result = _.filter(['banana', 'apple', 'pear', 'banana'], function(str) { if (str === 'banana') return str });
+      expect(result).to.eql(['banana', 'banana']);
+    });
   });
 });
