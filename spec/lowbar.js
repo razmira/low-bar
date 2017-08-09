@@ -127,5 +127,9 @@ describe('_', function () {
       const result = _.reject();
       expect(result).to.be.an('array');
     });
+    it('should return an array of all the values that fail a truth test (predicate)', function () {
+      const result = _.reject([1, 2, 3, 4, 5, 6], function(num) { return num % 2 == 0; });
+      expect(result).to.eql([1, 3, 5]);
+    });
   });
 });
