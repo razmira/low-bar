@@ -66,6 +66,15 @@ _.reject = function (list, predicate) {
   return falseArr;
 };
 
+_.uniq = function (arr) {
+  if (!arr) return [];
+  let newArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (newArr.indexOf(arr[i]) === -1) newArr.push(arr[i]);
+  }
+  return newArr;
+};
+
 if (typeof module !== 'undefined') {
   module.exports = _;
 }

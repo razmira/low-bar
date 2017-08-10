@@ -140,4 +140,13 @@ describe('_', function () {
       expect(result).to.eql([1, 3, 5]);
     });
   });
+  describe('#uniq', function () {
+    it('is a function', function() {
+      expect(_.uniq).to.be.a('function');
+    });
+    it('should return an array', function() {
+      const result = _.uniq();
+      expect(result).to.be.an('array');
+    });
+  });
 });
