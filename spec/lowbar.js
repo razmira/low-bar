@@ -148,5 +148,9 @@ describe('_', function () {
       const result = _.uniq();
       expect(result).to.be.an('array');
     });
+    it('should produce a duplicate-free version of the array', function () {
+      const result = _.uniq([1, 2, 1, 4, 1, 3]);
+      expect(result).to.be.eql([1, 2, 4, 3]);
+    });
   });
 });
