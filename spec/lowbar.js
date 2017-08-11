@@ -197,4 +197,13 @@ describe('_', function () {
         expect(_.contains([1, 2, 3], 1, 0)).to.equal(true);
     });
   });
+  describe('#pluck', function () {
+    it('is a function', function () {
+        expect(_.pluck).to.be.a('function');
+    });
+    it('should extract a list of property values', function () {
+        const stooges = [{ name: 'moe', age: 40 }, { name: 'larry', age: 50 }, { name: 'curly', age: 60 }];
+        expect(_.pluck(stooges, 'name')).to.eql(['moe', 'larry', 'curly']);
+    });
+  });
 });

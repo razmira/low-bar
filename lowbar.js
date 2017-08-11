@@ -96,6 +96,13 @@ _.contains = function (array, target, fromIndex) {
     }
 };
 
+_.pluck = function (list, propName) {
+    const newList = list.map(function (elem) {
+      return (elem[propName]);
+    });
+    return newList;
+};
+
 if (typeof module !== 'undefined') {
   module.exports = _;
 }
