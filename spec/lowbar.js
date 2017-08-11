@@ -165,5 +165,9 @@ describe('_', function () {
       const result = _.map(arr, iteratee);
       expect(result).to.be.an('array');
     });
+  it('should return an empty array if list is undefined', function() {
+      const result = _.map();
+      expect(result).to.eql([]);
+    });
   });  
 });
