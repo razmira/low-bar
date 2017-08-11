@@ -75,6 +75,20 @@ _.uniq = function (arr) {
   return newArr;
 };
 
+_.map = function (list, iteratee) {
+    let newArr = [];
+    if (list === undefined) return [];
+    if (Array.isArray(list)) {
+      for (let i = 0; i < list.length; i++) {
+        iteratee(list[i], i, list);
+        newArr.push(i);
+      }
+    }
+    return newArr; 
+};
+
 if (typeof module !== 'undefined') {
   module.exports = _;
 }
+
+

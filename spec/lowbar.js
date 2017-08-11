@@ -153,4 +153,17 @@ describe('_', function () {
       expect(result).to.be.eql([1, 2, 4, 3]);
     });
   });
+  describe('#map', function () {
+    it('is a function', function() {
+      expect(_.map).to.be.a('function');
+    });
+  it('should return an array', function() {
+      const arr = [1, 2, 3];
+      const iteratee = function () {
+        return arr;
+      };
+      const result = _.map(arr, iteratee);
+      expect(result).to.be.an('array');
+    });
+  });  
 });
