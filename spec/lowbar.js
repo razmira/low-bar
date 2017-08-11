@@ -189,5 +189,8 @@ describe('_', function () {
     it('should return true if the array contains the parameter', function () {
         expect(_.contains([1, 2, 3], 3)).to.equal(true);
     });
+    it('should return false if the array does not contain the parameter', function () {
+        expect(_.contains([1, 2, 3], 4)).to.equal(false);
+    });
   });
 });
