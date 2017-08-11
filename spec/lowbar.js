@@ -192,5 +192,9 @@ describe('_', function () {
     it('should return false if the array does not contain the parameter', function () {
         expect(_.contains([1, 2, 3], 4)).to.equal(false);
     });
+    it ('should start searching at the index provided as the third argument', function () {
+        expect(_.contains([1, 2, 3], 1, 1)).to.equal(false);
+        expect(_.contains([1, 2, 3], 1, 0)).to.equal(true);
+    });
   });
 });
