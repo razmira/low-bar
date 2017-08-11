@@ -87,6 +87,15 @@ _.map = function (list, iteratee) {
     return newArr; 
 };
 
+_.contains = function (array, target, fromIndex) {
+    let slice = array.slice(fromIndex);
+    if (slice.indexOf(target) !== -1) {
+        return true;
+    } else {
+        return false;
+    }
+};
+
 if (typeof module !== 'undefined') {
   module.exports = _;
 }

@@ -157,29 +157,37 @@ describe('_', function () {
     it('is a function', function() {
       expect(_.map).to.be.a('function');
     });
-  it('should return an array', function() {
-      const arr = [1, 2, 3];
-      const iteratee = function () {
+    it('should return an array', function() {
+        const arr = [1, 2, 3];
+        const iteratee = function () {
+          return arr;
+        };
+        const result = _.map(arr, iteratee);
+        expect(result).to.be.an('array');
+    });
+    it('should return an empty array if list is undefined', function() {
+        const result = _.map();
+        expect(result).to.eql([]);
+    });
+    it ('should return an array of equal length to input array', function () {
+      const arr = [1, 2, 3, 4, 5];
+      const iteratee = function (num = num * 2) {
         return arr;
-      };
-      const result = _.map(arr, iteratee);
-      expect(result).to.be.an('array');
-    });
-  it('should return an empty array if list is undefined', function() {
-      const result = _.map();
-      expect(result).to.eql([]);
-    });
-  it ('should return an array of equal length to input array', function () {
-    const arr = [1, 2, 3, 4, 5];
-    const iteratee = function (num = num * 2) {
-      return arr;
     };
     const result = _.map(arr, iteratee);
     expect(result.length).to.eql(5);
     });
-  it('should return an array if list is object', function() {
-      const result = _.map({});
-      expect(result).to.eql([]);
+    it('should return an array if list is object', function() {
+        const result = _.map({});
+        expect(result).to.eql([]);
     });
-  });  
+  });
+  describe('_.contains', function () {
+    it('is a function', function () {
+        expect(_.contains).to.be.a('function');
+    });
+    it('should return true if the array contains the parameter', function () {
+        expect(_.contains([1, 2, 3], 3)).to.equal(true);
+    });
+  });
 });
