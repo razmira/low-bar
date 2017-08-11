@@ -169,5 +169,13 @@ describe('_', function () {
       const result = _.map();
       expect(result).to.eql([]);
     });
+  it ('should return an array of equal length to input array', function () {
+    const arr = [1, 2, 3, 4, 5];
+    const iteratee = function (num = num * 2) {
+      return arr;
+    };
+    const result = _.map(arr, iteratee);
+    expect(result.length).to.eql(5);
+    });
   });  
 });
