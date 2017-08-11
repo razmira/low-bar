@@ -177,5 +177,9 @@ describe('_', function () {
     const result = _.map(arr, iteratee);
     expect(result.length).to.eql(5);
     });
+  it('should return an array if list is object', function() {
+      const result = _.map({});
+      expect(result).to.eql([]);
+    });
   });  
 });
