@@ -263,5 +263,23 @@ describe('_', function () {
     it('should return false if no list values pass predicate truth test', function () {
         expect(_.some([3, 5, 7], function (num) { return num % 2 === 0; })).to.equal(false);
     });
+    it('should bind the iteratee to context if context provided', function () {
+        const spy = sinon.spy();
+        const collection = [1, 2, 3];
+        const context = {
+            a: 2,
+            b: 4,
+            c: 6
+        };
+        _.every(collection, spy, context);
+        const callCount = spy.callCount;
+        const firstCall = spy.firstCall.thisValue;
+        const secondCall = spy.secondCall.thisValue;
+        const thirdCall = spy.thirdCall.thisValue;
+        expect(callCount).to.be.equal(3);
+        expect(firstCall).to.be.eql(context);
+        expect(secondCall).to.be.eql(context);
+        expect(thirdCall).to.be.eql(context);
+    });
   });
 });
