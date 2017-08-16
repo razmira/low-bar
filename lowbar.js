@@ -118,6 +118,15 @@ _.reduce = function(list, iteratee, memo) {
     }
 };
 
+_.every = function (list, predicate, context) {
+    for (let i = 0; i < list.length; i++) {
+        if (predicate.call(context || list, list[i]) === false) {
+            return false;
+        }
+    }
+    return true;
+};
+
 if (typeof module !== 'undefined') {
   module.exports = _;
 }

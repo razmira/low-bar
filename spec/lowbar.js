@@ -223,4 +223,12 @@ describe('_', function () {
       expect(_.reduce({a: 2, b: 4, c: 6, d: 8, e: 10}, function (memo, num) { return memo + num / 2; }, 0)).to.equal(15);
     });
   });
+  describe('#every', function () {
+    it('is a function', function () {
+        expect(_.every).to.be.a('function');
+    });
+    it('should return true if all list values pass predicate test', function () {
+        expect(_.every([2, 4, 6], function (num) { return num % 2 == 0; })).to.equal(true);
+    });
+  });
 });
