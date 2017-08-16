@@ -105,6 +105,7 @@ _.pluck = function (list, propName) {
 
 _.reduce = function(list, iteratee, memo) {
   for (let i = 0; i < list.length; i++) {
+    if (memo === undefined) { memo = i; }
     memo = iteratee(memo, list[i]);
   }
   return memo;
