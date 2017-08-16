@@ -253,4 +253,12 @@ describe('_', function () {
         expect(thirdCall).to.be.eql(context);
     });
   });
+  describe('_.some', function () {
+    it('is a function', function () {
+        expect(_.some).to.be.a('function');
+    });
+    it('should return true if any list values pass predicate truth test', function () {
+        expect(_.some([2, 5, 7], function (num) { return num % 2 === 0; })).to.equal(true);
+    });
+  });
 });

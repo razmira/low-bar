@@ -127,6 +127,15 @@ _.every = function (list, predicate, context) {
     return true;
 };
 
+_.some = function (list, predicate, context) {
+    for (let i = 0; i < list.length; i++) {
+        if (predicate.call(context || list, list[i]) === true) {
+            return true;
+        }
+    }
+    return false;
+};
+
 if (typeof module !== 'undefined') {
   module.exports = _;
 }
