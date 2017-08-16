@@ -206,4 +206,13 @@ describe('_', function () {
         expect(_.pluck(stooges, 'name')).to.eql(['moe', 'larry', 'curly']);
     });
   });
+  describe('#reduce', function () {
+    it('is a function', function () {
+        expect(_.reduce).to.be.a('function');
+    });
+    it('reduces an array to a single value by accumulation and iteratee', function () {
+        expect(_.reduce(['w', 'o', 'r', 'd'], function (memo, str) { return memo + str; }, '')).to.equal('word');
+        expect(_.reduce([2, 4, 6, 8, 10], function (memo, num) { return memo + num / 2; }, 0)).to.equal(15);
+    });
+  });
 });

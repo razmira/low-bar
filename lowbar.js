@@ -103,6 +103,13 @@ _.pluck = function (list, propName) {
     return newList;
 };
 
+_.reduce = function(list, iteratee, memo) {
+  for (let i = 0; i < list.length; i++) {
+    memo = iteratee(memo, list[i]);
+  }
+  return memo;
+};
+
 if (typeof module !== 'undefined') {
   module.exports = _;
 }
