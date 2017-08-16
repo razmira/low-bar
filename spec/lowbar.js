@@ -282,4 +282,13 @@ describe('_', function () {
         expect(thirdCall).to.be.eql(context);
     });
   });
+  describe('#extend', function () {
+    it('is a function', function () {
+        expect(_.extend).to.be.a('function');
+    });
+    it('should shallow copy source properties to destination object', function () {
+        expect(_.extend({ a: 'apple', b: 'banana', c: 'clementine'}))
+        .to.eql({ a: 'apple', b: 'banana', c: 'clementine'});
+    });
+  });
 });
