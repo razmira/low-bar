@@ -230,5 +230,8 @@ describe('_', function () {
     it('should return true if all list values pass predicate test', function () {
         expect(_.every([2, 4, 6], function (num) { return num % 2 == 0; })).to.equal(true);
     });
+    it('should return false if not all list values pass predicate test', function () {
+        expect(_.every([2, 4, 7], function (num) { return num % 2 == 0; })).to.equal(false);
+    });
   });
 });
