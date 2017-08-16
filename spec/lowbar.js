@@ -1,6 +1,7 @@
 /* global describe, it */
 const path = require('path');
 const expect = require('chai').expect;
+const sinon = require('sinon');
 
 const _ = require(path.join(__dirname, '..', './lowbar.js'));
 
@@ -219,8 +220,8 @@ describe('_', function () {
         expect(_.reduce(list, function(memo, num) { return memo + num; })).to.eql(6);
     });
     it('should reduce an object to a single value by accumulation and iteratee', function () {
-      expect(_.reduce({a: 'w', b: 'o', c: 'r', d: 'd'}, function (memo, str) { return memo + str; }, '')).to.equal('word');
-      expect(_.reduce({a: 2, b: 4, c: 6, d: 8, e: 10}, function (memo, num) { return memo + num / 2; }, 0)).to.equal(15);
+        expect(_.reduce({a: 'w', b: 'o', c: 'r', d: 'd'}, function (memo, str) { return memo + str; }, '')).to.equal('word');
+        expect(_.reduce({a: 2, b: 4, c: 6, d: 8, e: 10}, function (memo, num) { return memo + num / 2; }, 0)).to.equal(15);
     });
   });
   describe('#every', function () {
@@ -232,6 +233,24 @@ describe('_', function () {
     });
     it('should return false if not all list values pass predicate test', function () {
         expect(_.every([2, 4, 7], function (num) { return num % 2 == 0; })).to.equal(false);
+    });
+    it('should bind the iteratee to context if context provided', function () {
+        const spy = sinon.spy();
+        const collection = [1, 2, 3];
+        const context = {
+            a: 2,
+            b: 4,
+            c: 6
+        };
+        _.every(collection, spy, context);
+        const callCount = spy.callCount;
+        const firstCall = spy.firstCall.thisValue;
+        const secondCall = spy.secondCall.thisValue;
+        const thirdCall = spy.thirdCall.thisValue;
+        expect(callCount).to.be.equal(3);
+        expect(firstCall).to.be.eql(context);
+        expect(secondCall).to.be.eql(context);
+        expect(thirdCall).to.be.eql(context);
     });
   });
 });
