@@ -260,5 +260,8 @@ describe('_', function () {
     it('should return true if any list values pass predicate truth test', function () {
         expect(_.some([2, 5, 7], function (num) { return num % 2 === 0; })).to.equal(true);
     });
+    it('should return false if no list values pass predicate truth test', function () {
+        expect(_.some([3, 5, 7], function (num) { return num % 2 === 0; })).to.equal(false);
+    });
   });
 });
