@@ -210,13 +210,17 @@ describe('_', function () {
     it('is a function', function () {
         expect(_.reduce).to.be.a('function');
     });
-    it('reduces an array to a single value by accumulation and iteratee', function () {
+    it('should reduce an array to a single value by accumulation and iteratee', function () {
         expect(_.reduce(['w', 'o', 'r', 'd'], function (memo, str) { return memo + str; }, '')).to.equal('word');
         expect(_.reduce([2, 4, 6, 8, 10], function (memo, num) { return memo + num / 2; }, 0)).to.equal(15);
     });
     it('if memo is not passed, the first element of the array is used', () => {
         const list = [1, 2, 3];
         expect(_.reduce(list, function(memo, num) { return memo + num; })).to.eql(6);
+    });
+    it('should reduce an object to a single value by accumulation and iteratee', function () {
+      expect(_.reduce({a: 'w', b: 'o', c: 'r', d: 'd'}, function (memo, str) { return memo + str; }, '')).to.equal('word');
+      expect(_.reduce({a: 2, b: 4, c: 6, d: 8, e: 10}, function (memo, num) { return memo + num / 2; }, 0)).to.equal(15);
     });
   });
 });

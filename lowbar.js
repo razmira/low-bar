@@ -104,11 +104,18 @@ _.pluck = function (list, propName) {
 };
 
 _.reduce = function(list, iteratee, memo) {
-  for (let i = 0; i < list.length; i++) {
-    if (memo === undefined) { memo = i; }
-    memo = iteratee(memo, list[i]);
-  }
-  return memo;
+  if (Array.isArray(list)) {
+    for (let i = 0; i < list.length; i++) {
+      if (memo === undefined) { memo = i; }
+      memo = iteratee(memo, list[i]);
+    }
+    return memo;
+  } else if (typeof list === 'object') {
+    for (let key in list) {
+      memo = iteratee(memo, list[key]);
+    }
+    return memo;
+    }
 };
 
 if (typeof module !== 'undefined') {
