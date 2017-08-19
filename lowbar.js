@@ -162,6 +162,20 @@ _.defaults = function (object, ...defaults) {
     return object;
 };
 
+_.once = function (func) {
+    let invoked = false;
+    let result;
+    const innerFunc = function () {
+        if (invoked === false) {
+            result = func();
+            invoked = true;
+        }
+        return result;
+    };
+    return innerFunc;
+};
+
+
 if (typeof module !== 'undefined') {
   module.exports = _;
 }

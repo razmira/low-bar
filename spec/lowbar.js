@@ -335,4 +335,21 @@ describe('_', function () {
         expect(_.defaults(apple, {colour: 'red', amount: 4})).to.eql(expected);
     });
   });
+  describe('_.once', function () {
+    it('is a function', function () {
+        expect(_.once).to.be.a('function');
+    });
+    it('function should only be called once', function () {
+        const spy = sinon.spy();
+        const testLimit = _.once(spy);
+        _.once(spy);
+        _.once(spy);
+        _.once(spy);
+        _.once(spy);
+        _.once(spy);
+        _.once(spy);
+        testLimit();
+        expect(spy.callCount).to.equal(1);
+    });
+  });
 });
