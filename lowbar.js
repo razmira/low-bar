@@ -151,6 +151,17 @@ _.extend = function (destination, ...sources) {
     return destination;
 };
 
+_.defaults = function (object, ...defaults) {
+    _.each(defaults, function (defaultObj) {
+        _.each(defaultObj, function (value, key) {
+            if (object[key] === undefined) {
+                object[key] = value;
+            }
+        });
+    });
+    return object;
+};
+
 if (typeof module !== 'undefined') {
   module.exports = _;
 }

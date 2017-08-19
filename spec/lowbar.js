@@ -313,16 +313,26 @@ describe('_', function () {
         expect(_.extend).to.be.a('function');
     });
     it('should shallow copy source properties to destination object', function () {
-        expect(_.extend({ a: 'apple', b: 'banana', c: 'clementine' }))
+        expect(_.extend({ a: 'apple'}, {b: 'banana'}, {c: 'clementine' }))
         .to.eql({ a: 'apple', b: 'banana', c: 'clementine' });
     });
-    it('should override properties of the same name in previous arguments using the last source with that name', () => {
+    it('should override properties of the same name in previous arguments using the last source with that name', function () {
         const destination = {a: 'apple'};
         const source1 = {b: 'banana'};
         const source2 = {c: 'clementine'};
         const source3 = {b: 'butternut squash'};
         const expected = {a: 'apple', b: 'butternut squash', c: 'clementine'};
         expect(_.extend(destination, source1, source2, source3)).to.eql(expected);
+    });
+  });
+  describe('#defaults', function () {
+    it('is a function', function () {
+        expect(_.defaults).to.be.a('function');
+    });
+    it('should fill in undefined properties in object with first value in following list of defaults objects', function () {
+        const apple = {colour: 'green'};
+        const expected = {colour: 'green', amount: 4};
+        expect(_.defaults(apple, {colour: 'red', amount: 4})).to.eql(expected);
     });
   });
 });
