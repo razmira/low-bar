@@ -142,8 +142,13 @@ _.some = function (list, predicate, context) {
     return false;
 };
 
-_.extend = function (destination, source) {
-    return Object.assign({}, destination, source);
+_.extend = function (destination, ...sources) {
+    _.each(sources, function (source) {
+        _.each(source, function (value, key) {
+            destination[key] = value;
+        });
+    });
+    return destination;
 };
 
 if (typeof module !== 'undefined') {
