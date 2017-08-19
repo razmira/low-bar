@@ -79,6 +79,25 @@ describe('_', function () {
         const argsPassedToIteratee = spy.args[0];
         expect(argsPassedToIteratee.length).to.equal(3);
     });
+    it('it should bind iteratee to context if context is present', function () {
+        const spy = sinon.spy();
+        const list = ['a', 'b', 'c'];
+        const context = {
+            a: 'd',
+            b: 'e',
+            c: 'f'
+        };
+        _.each(list, spy, context);
+        // checking spy properties
+        const callCount = spy.callCount;
+        const firstCall = spy.firstCall.thisValue;
+        const secondCall = spy.secondCall.thisValue;
+        const thirdCall = spy.thirdCall.thisValue;
+        expect(callCount).to.be.equal(3);
+        expect(firstCall).to.be.eql(context);
+        expect(secondCall).to.be.eql(context);
+        expect(thirdCall).to.be.eql(context);
+    });
   });
   describe('#indexOf', function () {
     it('is a function', function() {
