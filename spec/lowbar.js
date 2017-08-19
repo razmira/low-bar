@@ -54,23 +54,30 @@ describe('_', function () {
     it('is a function', function() {
       expect(_.each).to.be.a('function');
     });
-    it('should count array items', function() {
-      const arr = ['a','b','c','d','e'];
+    it('should count list items', function() {
+      const list = ['a','b','c','d','e'];
       let counter = 0;
       const addToCounter = function() {
         return counter++;
       };
-      _.each(arr, addToCounter);
-      expect(counter).to.equal(arr.length);
+      _.each(list, addToCounter);
+      expect(counter).to.equal(list.length);
     });
-    it('should return the array passed', function() {
-      const arr = ['a','b','c','d','e'];
+    it('should return the list passed', function() {
+      const list = ['a','b','c','d','e'];
       let counter = 0;
       const addToCounter = function() {
         return counter++;
       };
-      const result = _.each(arr, addToCounter);
-      expect(result).to.eql(arr);
+      const result = _.each(list, addToCounter);
+      expect(result).to.eql(list);
+    });
+    it('should call the iteratee with three paramaters: element, index, list OR value, key, list', function () {
+        const list = ['a'];
+        const spy = sinon.spy();
+        _.each(list, spy);
+        const argsPassedToIteratee = spy.args[0];
+        expect(argsPassedToIteratee.length).to.equal(3);
     });
   });
   describe('#indexOf', function () {
@@ -287,8 +294,8 @@ describe('_', function () {
         expect(_.extend).to.be.a('function');
     });
     it('should shallow copy source properties to destination object', function () {
-        expect(_.extend({ a: 'apple', b: 'banana', c: 'clementine'}))
-        .to.eql({ a: 'apple', b: 'banana', c: 'clementine'});
+        expect(_.extend({ a: 'apple', b: 'banana', c: 'clementine' }))
+        .to.eql({ a: 'apple', b: 'banana', c: 'clementine' });
     });
   });
 });

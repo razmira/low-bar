@@ -18,11 +18,17 @@ _.last = function(arr, n) {
   return arr.slice(-n);
 };
 
-_.each = function(arr, iteratee) {
-  for (let i = 0; i < arr.length; i++) {
-    iteratee(arr[i], i, arr);
-  }
-  return arr;
+_.each = function (list, iteratee, context) {
+    if (Array.isArray(list) || typeof list === 'string') {
+        for (let i = 0; i < list.length; i++) {
+            iteratee.call(context || list, list[i], i, list);
+        }
+    } else if (typeof list === 'object') {
+        for (let key in list) {
+            iteratee.call(context || list, list[key], key, list);
+        }
+    }
+    return list;
 };
 
 _.indexOf = function (arr, val, start) {
