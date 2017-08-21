@@ -176,17 +176,26 @@ _.once = function (func) {
 };
 
 _.shuffle = function (list) {
+    if (Array.isArray(list)) {
         let i = 0,
         j = 0,
         temp = null;
 
-    for (i = list.length - 1; i > 0; i--) {
-        j = Math.floor(Math.random() * (i + 1));
-        temp = list[i];
-        list[i] = list[j];
-        list[j] = temp;
+        for (i = list.length - 1; i > 0; i--) {
+            j = Math.floor(Math.random() * (i + 1));
+            temp = list[i];
+            list[i] = list[j];
+            list[j] = temp;
+        }
+        return list;
+    } else if (typeof list === 'object') {
+        const tempList = [];
+        let key;
+        for (key in list) {
+            tempList.push(list[key]);
     }
-    return list;
+    return tempList;
+    }
 };
 
 if (typeof module !== 'undefined') {

@@ -362,5 +362,18 @@ describe('_', function () {
         expect(list.length).to.equal(output.length);
         expect(output).to.have.members(list);
     });
+    it('should return a shuffled copy of list using Fisher-Yates shuffle if list is an object', () => {
+        const list = {
+            'a': 1,
+            'b': 2,
+            'c': 3,
+            'd': 4,
+            'e': 5
+        };
+        const output = _.shuffle(list);
+        const listValues = _.shuffle(list);
+        expect(listValues.length).to.equal(output.length);
+        expect(output).to.have.members(listValues);
+    });
   });
 });
