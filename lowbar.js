@@ -210,6 +210,24 @@ _.delay = function (func, wait, ...args) {
     }, wait);
 };
 
+_.intersection = function (...args) {
+    let result = [];
+    _.each(args[0], function (arrayElem) {
+        let intersects = false;
+        for (let i = 1; i < args.length; i++) {
+            _.each(args[i], function (check) {
+                if (arrayElem === check) {
+                    intersects = true;
+                }
+            });
+        }
+        if (intersects) {
+            result.push(arrayElem);
+        }
+    });
+    return result;
+};
+
 if (typeof module !== 'undefined') {
   module.exports = _;
 }

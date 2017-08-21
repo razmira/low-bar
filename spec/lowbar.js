@@ -426,4 +426,13 @@ describe('_', function () {
         expect(spy.args).to.eql([['param']]);
     });
   });
+  describe('_.intersection', function () {
+    it('is a function', function () {
+        expect(_.intersection).to.be.a('function');
+    });
+    it('should compute the list of values that are the intersection of all the arrays and returns them in an array', function () {
+        expect(_.intersection([1, 2, 3], [2, 6, 7])).to.be.an('array');
+        expect(_.intersection([1, 2, 3], [2, 6, 7])).to.eql([2]);
+    });
+  });
 });
