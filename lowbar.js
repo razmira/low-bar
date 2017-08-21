@@ -81,16 +81,12 @@ _.uniq = function (arr) {
   return newArr;
 };
 
-_.map = function (list, iteratee) {
-    let newArr = [];
-    if (list === undefined) return [];
-    if (Array.isArray(list)) {
-      for (let i = 0; i < list.length; i++) {
-        iteratee(list[i], i, list);
-        newArr.push(i);
-      }
-    }
-    return newArr; 
+_.map = function (list, iteratee, context) {
+    const result = [];
+    _.each(list, function (value, index) {
+        result.push(iteratee.call(context, value, index, list));
+    });
+    return result;
 };
 
 _.contains = function (array, target, fromIndex) {
