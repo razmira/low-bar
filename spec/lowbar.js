@@ -418,5 +418,12 @@ describe('_', function () {
         clock.tick(100);
         expect(spy.callCount).to.eql(1);
     });
+    it('should call the function with the passed paramater', function () {
+        const clock = sinon.useFakeTimers();
+        _.delay(spy, 100, 'param');
+        clock.tick(100);
+        expect(spy.callCount).to.eql(1);
+        expect(spy.args).to.eql([['param']]);
+    });
   });
 });
