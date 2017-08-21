@@ -376,4 +376,15 @@ describe('_', function () {
         expect(output).to.have.members(listValues);
     });
   });
+  describe('_.invoke', function () {
+    it('is a function', function () {
+        expect(_.invoke).to.be.a('function');
+    });
+    it('should call the method on every element of the list', function () {
+        const list = [[5, 1, 7], [3, 2, 1]];
+        const method = 'sort';
+        const expected = [[1, 5, 7], [1, 2, 3]];
+        expect(_.invoke(list, method)).to.eql(expected);
+    });
+  });
 });

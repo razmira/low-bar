@@ -193,6 +193,17 @@ _.shuffle = function (list) {
     }
 };
 
+_.invoke = function (list, method, ...args) {
+    return _.map(list, function (elem) {
+        if (elem[method]) {
+            elem[method].apply(elem, args);
+            return elem;
+        } else {
+            return elem[method];
+        }
+    });
+};
+
 if (typeof module !== 'undefined') {
   module.exports = _;
 }
