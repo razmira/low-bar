@@ -209,7 +209,7 @@ describe('_', function () {
         expect(result).to.eql([]);
     });
   });
-  describe('_.contains', function () {
+  describe('#ßcontains', function () {
     it('is a function', function () {
         expect(_.contains).to.be.a('function');
     });
@@ -279,7 +279,7 @@ describe('_', function () {
         expect(thirdCall).to.be.eql(context);
     });
   });
-  describe('_.some', function () {
+  describe('#some', function () {
     it('is a function', function () {
         expect(_.some).to.be.a('function');
     });
@@ -335,7 +335,7 @@ describe('_', function () {
         expect(_.defaults(apple, {colour: 'red', amount: 4})).to.eql(expected);
     });
   });
-  describe('_.once', function () {
+  describe('#once', function () {
     it('is a function', function () {
         expect(_.once).to.be.a('function');
     });
@@ -350,6 +350,17 @@ describe('_', function () {
         _.once(spy);
         testLimit();
         expect(spy.callCount).to.equal(1);
+    });
+  });
+  describe('_.shuffle', function () {
+    it('is a function', function () {
+        expect(_.shuffle).to.be.a('function');
+    });
+    it('should return a shuffled copy of list using Fisher-Yates shuffle if list is an array', function () {
+        const list = [1, 2, 3, 4, 5, 6];
+        const output = _.shuffle(list);
+        expect(list.length).to.equal(output.length);
+        expect(output).to.have.members(list);
     });
   });
 });
