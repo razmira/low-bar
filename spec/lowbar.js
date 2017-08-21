@@ -401,4 +401,22 @@ describe('_', function () {
         expect(actual).to.deep.equal(expected);
     });
   });
+  describe('_,delay', function () {
+    let spy;
+    beforeEach(function () {
+        spy = sinon.spy();
+    });
+
+    it('is a function', function () {
+        expect(_.delay).to.be.a('function');
+    });
+    it('should run the function after wait has passed', function () {
+        const clock = sinon.useFakeTimers();
+        _.delay(spy, 100);
+        clock.tick(1);
+        expect(spy.callCount).to.eql(0);
+        clock.tick(100);
+        expect(spy.callCount).to.eql(1);
+    });
+  });
 });
