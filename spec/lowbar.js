@@ -386,5 +386,11 @@ describe('_', function () {
         const expected = [[1, 5, 7], [1, 2, 3]];
         expect(_.invoke(list, method)).to.eql(expected);
     });
+    it('should return an array with undefined if the method doesnt exist', function () {
+        const list = { '1': 1 };
+        const method = 'splice';
+        const expected = [undefined];
+        expect(_.invoke(list, method)).to.eql(expected);
+    });
   });
 });
