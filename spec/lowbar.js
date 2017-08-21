@@ -392,5 +392,13 @@ describe('_', function () {
         const expected = [undefined];
         expect(_.invoke(list, method)).to.eql(expected);
     });
+    it('should pass arguments to the method if arguments are present', function () {
+        const list = [[5, 1, 7], [3, 2, 1]];
+        const method = 'sort';
+        const arg = function (a, b) { return b - a; };
+        const expected = [[7, 5, 1], [3, 2, 1]];
+        const actual = _.invoke(list, method, arg);
+        expect(actual).to.deep.equal(expected);
+    });
   });
 });
