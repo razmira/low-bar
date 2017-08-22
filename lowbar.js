@@ -246,7 +246,27 @@ _.difference = function(...args) {
       }
     });
     return result;
-  };
+};
+
+_.flatten = function(arr, shallow = false) {
+    return shallow === false ? deepFlatten(arr) : shallowFlatten(arr);
+    function deepFlatten(array) {
+      return _.reduce(array, function(acc, element) {
+        return acc.concat(Array.isArray(element) ? deepFlatten(element) : element);
+      }, []);
+    }
+    function shallowFlatten(array) {
+      return array.reduce(function(acc, element) {
+        if (Array.isArray(element) === true) {
+          return acc.concat(element);
+        } else {
+          acc.push(element);
+        }
+        return acc;
+      }, []);
+    }
+};
+
 
 if (typeof module !== 'undefined') {
   module.exports = _;
