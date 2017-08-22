@@ -225,7 +225,7 @@ describe('_', function() {
       expect(result).to.eql([]);
     });
   });
-  describe('#ßcontains', function() {
+  describe('#contains', function() {
     it('is a function', function() {
       expect(_.contains).to.be.a('function');
     });
@@ -436,7 +436,7 @@ describe('_', function() {
       expect(spy.callCount).to.equal(1);
     });
   });
-  describe('_.shuffle', function() {
+  describe('#shuffle', function() {
     it('is a function', function() {
       expect(_.shuffle).to.be.a('function');
     });
@@ -460,7 +460,7 @@ describe('_', function() {
       expect(output).to.have.members(listValues);
     });
   });
-  describe('_.invoke', function() {
+  describe('#invoke', function() {
     it('is a function', function() {
       expect(_.invoke).to.be.a('function');
     });
@@ -501,7 +501,7 @@ describe('_', function() {
       expect(actual).to.deep.equal(expected);
     });
   });
-  describe('_,delay', function() {
+  describe('#delay', function() {
     let spy;
     beforeEach(function() {
       spy = sinon.spy();
@@ -528,7 +528,7 @@ describe('_', function() {
       ]);
     });
   });
-  describe('_.intersection', function() {
+  describe('#intersection', function() {
     it('is a function', function() {
       expect(_.intersection).to.be.a('function');
     });
@@ -537,7 +537,7 @@ describe('_', function() {
       expect(_.intersection([1, 2, 3], [2, 6, 7])).to.eql([2]);
     });
   });
-  describe('_.difference', function() {
+  describe('#difference', function() {
     it('it is a function', function () {
       expect(_.difference).to.be.a('function');
     });
