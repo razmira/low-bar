@@ -610,5 +610,11 @@ describe('_', function() {
       expect(multiply(1, 2)).to.equal(2);
       expect(memoMultiply(1, 2)).to.equal(2);
     });
+    it('should only memoize once', function() {
+      const spy = sinon.spy();
+      const memoSpy = _.memoize(spy);
+      memoSpy(10);
+      expect(spy.callCount).to.equal(1);
+    });
   });
 });
