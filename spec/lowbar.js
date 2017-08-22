@@ -595,5 +595,20 @@ describe('_', function() {
       expect(_.sortBy(list, iteratee)).to.eql(expected);
     });
   });
+  describe('#memoize', function() {
+    let multiply, memoMultiply;
+      beforeEach(function() {
+        multiply = function(a, b) {
+          return a * b;
+        };
+        memoMultiply = _.memoize(multiply);
+      });
+    it('is a function', function() {
+        expect(_.memoize).to.be.a('function');
+    });
+    it('should memoize a given function by caching the computed result', function() {
+      expect(multiply(1, 2)).to.equal(2);
+      expect(memoMultiply(1, 2)).to.equal(2);
+    });
+  });
 });
-

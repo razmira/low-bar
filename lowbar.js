@@ -303,6 +303,17 @@ _.sortBy = function (list, iteratee) {
   }
 };
 
+_.memoize = function (func) {
+  const storage = {};
+  return function () {
+    const args = JSON.stringify(arguments);
+    if (storage[args] !== true) {
+      storage[args] = func.apply(this, arguments);
+    }
+    return storage[args];
+  };
+};
+
 
 if (typeof module !== 'undefined') {
   module.exports = _;
