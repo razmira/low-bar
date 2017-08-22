@@ -537,4 +537,13 @@ describe('_', function() {
       expect(_.intersection([1, 2, 3], [2, 6, 7])).to.eql([2]);
     });
   });
+  describe('_.difference', function() {
+    it('it is a function', function () {
+      expect(_.difference).to.be.a('function');
+    });
+    it('should return the values from array that are not present in the other arrays', function () {
+      expect(_.difference([1, 2, 3, 4, 5], [5, 2, 10], [5, 6, 7])).to.eql([1, 3, 4]);
+    });
+  });
 });
+

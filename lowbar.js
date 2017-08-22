@@ -230,6 +230,24 @@ _.intersection = function(...args) {
   return result;
 };
 
+_.difference = function(...args) {
+    let result = [];
+    _.each(args[0], function(arrayElem) {
+      let isUnique = true;
+      for (let i = 1; i < args.length; i++) {
+        _.each(args[i], function(check) {
+          if (arrayElem === check) {
+            isUnique = false;
+          }
+        });
+      }
+      if (isUnique) {
+        result.push(arrayElem);
+      }
+    });
+    return result;
+  };
+
 if (typeof module !== 'undefined') {
   module.exports = _;
 }
