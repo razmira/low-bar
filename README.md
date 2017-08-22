@@ -1,41 +1,6 @@
 # Lowbar Part 1
 
-## Goals
-
-1. Continue practicing test-driven development (TDD) - both the process and the
-tools you'll be using to do it from now until the end of the course (and beyond).
-2. Get an 'inside view' of one of the most heavily used JavaScript libraries
-[underscore](http://underscorejs.org/) (11m downloads on NPM last month) and
-get used to reading its API documentation.
-3. Become accustomed to using [NPM](https://www.npmjs.com/) to find and install
-JS libraries
-4. Learn to effectively pair program and use Git/Github as a collaboration tool.
-5. Lay the foundations for understanding the functional style of programming that JS lends itself so well to
-
-## Workflow
-
-A key requirement for this sprint is to get used to collaborating on a codebase using git and Github. The workflow we will be using is as follows:
-
-1. To begin, person A in the pair should fork and clone the project. They should add their pair as a collaborator on the project. (Settings --> Collaborators & teams --> Add Collaborator)
-2. The other person (person B) should navigate to their pair's fork (e.g. githubUserA's fork will be located at: https://github.com/githubUserA/wk01-lowbar) and should clone githubUserA's repository.
-3. Both pairs will be working on **the same codebase**, i.e. code that lives in person A's repository. To avoid merge conflicts, you should avoid both working on your copies of the code at the same time and should be rigorous about sticking to the 'driving and navigating' model of pair programming.
-4. After every successful piece of functionality, the driver should add, commit and push their work. Use neat, uniformly formatted commit messages and never commit code that isn't working!
-
-  `$ git add lowbar.js`
-
-  `$ git add spec/lowbar.spec.js`
-
-  `$ git commit -m '[_.map] maps an array'`
-
-  `$ git push origin master`
-
-5. Then switch the driver and the navigator. The new driver, working on their own machine, should make sure their codebase is up to date by pulling:
-
-  `$ git pull origin master`
-
-6. The driver types until the next test is passing, at which point the adding, committing, pushing, switching and pulling process is repeated.
-
----
+In this sprint, you will re-implement the Underscore library. You will need to setup an NPM project from scratch, create the files and directories you need, and set up your test environment. Make sure you also install the NPM package `husky` and use a `precommit` script in your `package.json` file that lints your code using ESLint. 
 
 ## Tasks
 
@@ -72,3 +37,38 @@ These are a little harder but will be very beneficial to try and complete.
 4. some
 5. extends
 6. defaults
+
+
+# Lowbar Part 2 (advanced)
+
+This time, the methods you need to implement are a little trickier. Many of them are utility methods for functions, such as `throttle` which stops a function being called more often than requested. Your experience with higher order functions, recursion and searching and sorting algorithms this week may come in useful!
+ 
+
+## Tasks
+
+1. once
+2. memoize
+3. shuffle
+4. invoke
+5. sortBy (NB the Underscore library uses the native JavaScript sort but feel free to use your sort algorithm!)
+6. zip
+7. sortedIndex
+8. flatten
+9. intersection
+10. difference
+
+
+# Advanced
+
+11. indexOf (again, this time with a binary search)
+12. throttle
+13. delay
+
+## Resources
+
+You should be heavily referencing the APIs of the following:
+
+1. [The Mocha Test Framework](https://mochajs.org/)
+2. [The Chai Assertion Library](http://chaijs.com/)
+3. [Sinon - spies, stubs & mocks](http://sinonjs.org/)
+4. [Underscore](http://underscorejs.org/)
