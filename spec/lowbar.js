@@ -555,6 +555,9 @@ describe('_', function() {
       expect(_.flatten([1, [2], [3, [4]]])).to.eql([1, 2, 3, 4]);
       expect(_.flatten([1, [2], [3, [[4]]]])).to.eql([1, 2, 3, 4]);
     });
+    it('should only concat to one level if shallow is passed', function() {
+      expect(_.flatten([1, [2], [3, [[4]]]], true)).to.eql([1, 2, 3, [[4]]]);
+    });
   });
 });
 
