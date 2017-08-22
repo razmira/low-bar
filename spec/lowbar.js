@@ -569,5 +569,18 @@ describe('_', function() {
       expect(_.sortedIndex(list, value)).to.eql(3);
     });
   });
+  describe('#zip', function() {
+    it('is a function', function() {
+      expect(_.zip).to.be.a('function');
+    });
+    it('should merge together the values of each of the arrays with the values at the corresponding position', function() {
+      const output = [
+        ['moe', 30, true],
+        ['larry', 40, false],
+        ['curly', 50, false]
+      ];
+      expect(_.zip(['moe', 'larry', 'curly'], [30, 40, 50], [true, false, false])).to.eql(output);
+    });
+  });
 });
 

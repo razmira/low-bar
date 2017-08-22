@@ -281,6 +281,14 @@ _.sortedIndex = function(list, value) {
   }
 };
 
+_.zip = function(...args) {
+  return Object.keys(args[0]).map(function(key) {
+    return args.map(function(array) {
+      return array[key];
+    });
+  });
+};
+
 if (typeof module !== 'undefined') {
   module.exports = _;
 }
