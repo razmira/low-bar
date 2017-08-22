@@ -559,5 +559,15 @@ describe('_', function() {
       expect(_.flatten([1, [2], [3, [[4]]]], true)).to.eql([1, 2, 3, [[4]]]);
     });
   });
+  describe('#sortedIndex', function() {
+    it('is a function', function() {
+      expect(_.sortedIndex).to.be.a('function');
+    });
+    it('should use binary search to determine the index at which value should be inserted into list', function() {
+      const list = [10, 20, 30, 40, 50];
+      const value = 35;
+      expect(_.sortedIndex(list, value)).to.eql(3);
+    });
+  });
 });
 

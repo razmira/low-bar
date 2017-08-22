@@ -231,42 +231,55 @@ _.intersection = function(...args) {
 };
 
 _.difference = function(...args) {
-    let result = [];
-    _.each(args[0], function(arrayElem) {
-      let isUnique = true;
-      for (let i = 1; i < args.length; i++) {
-        _.each(args[i], function(check) {
-          if (arrayElem === check) {
-            isUnique = false;
-          }
-        });
-      }
-      if (isUnique) {
-        result.push(arrayElem);
-      }
-    });
-    return result;
+  let result = [];
+  _.each(args[0], function(arrayElem) {
+    let isUnique = true;
+    for (let i = 1; i < args.length; i++) {
+      _.each(args[i], function(check) {
+        if (arrayElem === check) {
+          isUnique = false;
+        }
+      });
+    }
+    if (isUnique) {
+      result.push(arrayElem);
+    }
+  });
+  return result;
 };
 
 _.flatten = function(arr, shallow = false) {
-    return shallow === false ? deepFlatten(arr) : shallowFlatten(arr);
-    function deepFlatten(array) {
-      return _.reduce(array, function(acc, element) {
-        return acc.concat(Array.isArray(element) ? deepFlatten(element) : element);
-      }, []);
-    }
-    function shallowFlatten(array) {
-      return array.reduce(function(acc, element) {
-        if (Array.isArray(element) === true) {
-          return acc.concat(element);
-        } else {
-          acc.push(element);
+  return shallow === false ? deepFlatten(arr) : shallowFlatten(arr);
+  function deepFlatten(array) {
+    return _.reduce(array, function(acc, element) {
+      return acc.concat(Array.isArray(element) ? deepFlatten(element) : element);
+    }, []);
+  }
+  function shallowFlatten(array) {
+    return array.reduce(function(acc, element) {
+      if (Array.isArray(element) === true) {
+        return acc.concat(element);
+      } else {
+        acc.push(element);
         }
-        return acc;
+      return acc;
       }, []);
     }
 };
 
+_.sortedIndex = function(list, value) {
+  var startIndex = 0;
+  var stopIndex = list.length - 1;
+  var index = (startIndex + stopIndex) >> 1;
+  while (list[index] != value && startIndex < stopIndex) {
+    if (value < list[index]) {
+      stopIndex = index - 1;
+    } else if (value > list[index]) {
+      startIndex = index + 1;
+    }
+    return index = (startIndex + stopIndex) >> 1;
+  }
+};
 
 if (typeof module !== 'undefined') {
   module.exports = _;
