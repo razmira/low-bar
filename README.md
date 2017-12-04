@@ -1,74 +1,275 @@
-# Lowbar Part 1
+# Lowbar 
 
-In this sprint, you will re-implement the Underscore library. You will need to setup an NPM project from scratch, create the files and directories you need, and set up your test environment. Make sure you also install the NPM package `husky` and use a `precommit` script in your `package.json` file that lints your code using ESLint. 
+Lowbar is an exercise in re-implementing some of the Underscore.js library using native JavaScript.
 
-## Tasks
+## Objectives
 
-The Lowbar Sprint involves reimplementing a JS library as if you were its author. For Part 1 of this sprint (we'll be coming back to this in week 2), you'll need to reimplement the following methods:
+Learn and practise the following:
+                
+1. Test-driven development (TDD) - both the process and the
+tools
+2. Get an 'inside view' of one of the most heavily used JavaScript libraries
+[underscore](http://underscorejs.org/) (11m downloads on NPM last month) and get used to reading its API documentation.
 
-## Core
+Below is a list of the Underscore functions that were re-implemented in this project using native JavaScript (displayed as they appear in the Underscore libray):
 
-These are the core functions you should aim to get finished;
+### identity 
+```
+_.identity(value)
+```
+* Returns the same value that is used as the argument. In math: f(x) = x
+This function looks useless, but is used throughout Underscore as a default iteratee. 
 
-1. identity
-2. first
-3. last
-4. each
-5. indexOf
-6. filter
-7. reject
-8. uniq
-9. map
-10. contains
+### first 
+```
+_.first(array, [n]) Aliases: head, take
+```
+* Returns the first element of an array. Passing n will return the first n elements of the array. 
 
-You should be heavily referencing the APIs of the following;
+### last
+```
+_.last(array, [n])
+```
+* Returns the last element of an array. Passing n will return the last n elements of the array. 
 
-1. [Underscore](http://underscorejs.org/)
-2. [The Mocha Test Framework](https://mochajs.org/)
-3. [The Chai Assertion Library](http://chaijs.com/)
+### each
+```
+_.each(list, iteratee, [context]) Alias: forEach
+```
+* Iterates over a list of elements, yielding each in turn to an iteratee function. The iteratee is bound to the context object, if one is passed. Each invocation of iteratee is called with three arguments: (element, index, list). If list is a JavaScript object, iteratee's arguments will be (value, key, list). Returns the list for chaining. 
 
-## Advanced
+### lastIndexOf
+```
+_.lastIndexOf(array, value, [fromIndex])
+```
+* Returns the index of the last occurrence of value in the array, or -1 if value is not present. Pass fromIndex to start your search at a given index. 
 
-These are a little harder but will be very beneficial to try and complete.
+### filter
+```
+_.filter(list, predicate, [context]) Alias: select
+```
+* Looks through each value in the list, returning an array of all the values that pass a truth test (predicate). 
 
-1. pluck
-2. reduce
-3. every
-4. some
-5. extends
-6. defaults
+### reject
+```
+_.reject(list, predicate, [context])
+```
+* Returns the values in list without the elements that the truth test (predicate) passes. The opposite of filter. 
 
+### uniq
+```
+_.uniq(array, [isSorted], [iteratee]) Alias: unique
+```
+* Produces a duplicate-free version of the array, using === to test object equality. In particular only the first occurence of each value is kept. If you know in advance that the array is sorted, passing true for isSorted will run a much faster algorithm. If you want to compute unique items based on a transformation, pass an iteratee function. 
 
-# Lowbar Part 2 (advanced)
+### map
+```
+_.map(list, iteratee, [context]) Alias: collect
+```
+* Produces a new array of values by mapping each value in list through a transformation function (iteratee). The iteratee is passed three arguments: the value, then the index (or key) of the iteration, and finally a reference to the entire list. 
 
-This time, the methods you need to implement are a little trickier. Many of them are utility methods for functions, such as `throttle` which stops a function being called more often than requested. Your experience with higher order functions, recursion and searching and sorting algorithms this week may come in useful!
- 
+### contains
+```
+_.contains(list, value, [fromIndex]) Alias: includes
+```
+* Returns true if the value is present in the list. Uses indexOf internally, if list is an Array. Use fromIndex to start your search at a given index. 
 
-## Tasks
+### pluck
+```
+_.pluck(list, propertyName)
+```
+* A convenient version of what is perhaps the most common use-case for map: extracting a list of property values. 
 
-1. once
-2. memoize
-3. shuffle
-4. invoke
-5. sortBy (NB the Underscore library uses the native JavaScript sort but feel free to use your sort algorithm!)
-6. zip
-7. sortedIndex
-8. flatten
-9. intersection
-10. difference
+### reduce
+```
+_.reduce(list, iteratee, [memo], [context]) Aliases: inject, foldl
+```
+* Also known as inject and foldl, reduce boils down a list of values into a single value. Memo is the initial state of the reduction, and each successive step of it should be returned by iteratee. The iteratee is passed four arguments: the memo, then the value and index (or key) of the iteration, and finally a reference to the entire list. 
 
+### every
+```
+_.every(list, [predicate], [context]) Alias: all
+```
+* Returns true if all of the values in the list pass the predicate truth test. Short-circuits and stops traversing the list if a false element is found. 
 
-# Advanced
+### some
+```
+_.some(list, [predicate], [context]) Alias: any
+```
+* Returns true if any of the values in the list pass the predicate truth test. Short-circuits and stops traversing the list if a true element is found. 
 
-11. indexOf (again, this time with a binary search)
-12. throttle
-13. delay
+### extend
+```
+_.extend(destination, *sources)
+```
+* Shallowly copy all of the properties in the source objects over to the destination object, and return the destination object. Any nested objects or arrays will be copied by reference, not duplicated. It's in-order, so the last source will override properties of the same name in previous arguments. 
 
-## Resources
+### defaults
+```
+_.defaults(object, *defaults)
+```
+* Fill in undefined properties in object with the first value present in the following list of defaults objects. 
 
-You should be heavily referencing the APIs of the following:
+### once
+```
+_.once(function)
+```
+* Creates a version of the function that can only be called one time. Repeated calls to the modified function will have no effect, returning the value from the original call. Useful for initialization functions, instead of having to set a boolean flag and then check it later. 
 
-1. [The Mocha Test Framework](https://mochajs.org/)
-2. [The Chai Assertion Library](http://chaijs.com/)
-3. [Sinon - spies, stubs & mocks](http://sinonjs.org/)
-4. [Underscore](http://underscorejs.org/)
+### shuffle
+```
+_.shuffle(list)
+```
+* Returns a shuffled copy of the list, using a version of the Fisher-Yates shuffle. 
+
+### invoke
+```
+_.invoke(list, methodName, *arguments)
+```
+* Calls the method named by methodName on each value in the list. Any extra arguments passed to invoke will be forwarded on to the method invocation. 
+
+### delay
+```
+_.delay(function, wait, *arguments)
+```
+* Much like setTimeout, invokes function after wait milliseconds. If you pass the optional arguments, they will be forwarded on to the function when it is invoked. 
+
+### intersection
+```
+_.intersection(*arrays)
+```
+* Computes the list of values that are the intersection of all the arrays. Each value in the result is present in each of the arrays. 
+
+### difference
+```
+_.difference(array, *others)
+```
+* Similar to without, but returns the values from array that are not present in the other arrays. 
+
+### flatten
+```
+_.flatten(array, [shallow])
+```
+* Flattens a nested array (the nesting can be to any depth). If you pass shallow, the array will only be flattened a single level. 
+
+### sortedIndex
+```
+_.sortedIndex(list, value, [iteratee], [context])
+```
+* Uses a binary search to determine the index at which the value should be inserted into the list in order to maintain the list's sorted order. If an iteratee function is provided, it will be used to compute the sort ranking of each value, including the value you pass. The iteratee may also be the string name of the property to sort by (eg. length). 
+
+### zip
+```
+_.zip(*arrays)
+```
+* Merges together the values of each of the arrays with the values at the corresponding position. Useful when you have separate data sources that are coordinated through matching array indexes. Use with apply to pass in an array of arrays. If you're working with a matrix of nested arrays, this can be used to transpose the matrix. 
+
+### sortBy
+```
+_.sortBy(list, iteratee, [context])
+```
+* Returns a (stably) sorted copy of list, ranked in ascending order by the results of running each value through iteratee. iteratee may also be the string name of the property to sort by (eg. length). 
+
+### memoize
+```
+_.memoizefunction, [hashFunction])
+```
+* Memoizes a given function by caching the computed result. Useful for speeding up slow-running computations. If passed an optional hashFunction, it will be used to compute the hash key for storing the result, based on the arguments to the original function. The default hashFunction just uses the first argument to the memoized function as the key. The cache of memoized values is available as the cache property on the returned function. 
+
+## Getting Started (quick guide)
+
+1. Clone the Lowbar repo to new local directory:
+```
+git clone https://github.com/ashcode1/Lowbar.git
+```
+2. Install dependencies in your new directory:
+```
+npm install
+```
+3. Run the tests:
+```
+npm test
+```
+
+## Getting Started (detailed guide)
+
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. 
+
+### Prerequisites
+
+To install this programme you will first need a commandline terminal such as **iTerm2** (for Mac) or **Terminator** (Linux/Unbuntu/Fedora) - or something similar. For more info on using the commandline see this [blog article](https://lifehacker.com/5633909/who-needs-a-mouse-learn-to-use-the-command-line-for-almost-anything)
+
+You will then need to install the following:
+
+* Node.js 
+* NPM
+
+Check if Node.js is already installed by typing the following into the commandline (without the dollar sign):
+
+```
+$ node -v 
+```
+
+To install Node.js follow these [instructions](https://nodejs.org/en/download/package-manager/#osx)
+
+Check if NPM is installed:
+
+```
+$ npm -v
+```
+
+To install NPM follow these [instructions](https://docs.npmjs.com/getting-started/installing-node)
+
+### 
+
+**Clone the repo** 
+
+* Click the green button towards the top right of the GitHub Lowbar repository page
+* Click the "Copy to clipboard" button
+* On your machine navigate to your chosen folder using the commandline and paste in the link you just copied from the repo at the end of the following command:
+```
+$ git clone 
+```
+eg. 
+
+```
+$ git clone https://github.com/ashcode1/Lowbar.git
+```
+
+**Install dependencies**
+
+In your new directory run the following command:
+
+```
+$ npm install
+```
+
+## Running the tests
+
+In the same directory run the following command:
+
+```
+$ npm test
+```
+
+## Built With
+
+* [Node.js](https://nodejs.org/en/) 
+* [Mocha](https://mochajs.org/) 
+* [Chai](http://chaijs.com/) 
+* [Sinon](http://sinonjs.org/)
+* [npm](https://www.npmjs.com/)
+
+## Authors
+
+* **Ashley Hopkins** - [github](https://github.com/ashcode1)
+
+## License
+
+This project is licensed under the MIT License
+
+## Acknowledgments
+
+* The [Northcoders](https://northcoders.com/start-coding?ads_cmpid=949839241&ads_adid=47028772797&ads_matchtype=b&ads_network=g&ads_creative=228828910521&utm_term=northcoders&ads_targetid=kwd-375530169794&utm_campaign=&utm_source=adwords&utm_medium=ppc&ttv=2&gclid=Cj0KCQjwp_DPBRCZARIsAGOZYBT3fLL0ytyxD4YrK04zMgVM0T8YqqXfcIeKyjTQ61QL3UEpZk1K_ToaAmiCEALw_wcB) team for setting the challenge of this project and for creating and supporting an amazing network of developers in the north 
+
+* The [Underscore](https://github.com/jashkenas/underscore) team for building an awsome JavaScript library! 
