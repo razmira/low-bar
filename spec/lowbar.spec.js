@@ -11,19 +11,19 @@ describe('_', function() {
   it('is an object', function() {
     expect(_).to.be.an('object');
   });
+
+  // IDENTITY
+  
   describe('#identity', function() {
-    it('is a function', function() {
-      expect(_.identity).to.be.a('function');
-    });
     it('should return the same value that is used as the argument', function() {
       const result = _.identity('test');
       expect(result).to.equal('test');
     });
   });
+
+  // FIRST
+
   describe('#first', function() {
-    it('is a function', function() {
-      expect(_.first).to.be.a('function');
-    });
     it('should return first item in the array', function() {
       const arr = [1, 2, 3];
       const result = _.first(arr);
@@ -35,10 +35,10 @@ describe('_', function() {
       expect(result).to.eql([1, 2, 3]);
     });
   });
+
+  // LAST
+
   describe('#last', function() {
-    it('is a function', function() {
-      expect(_.last).to.be.a('function');
-    });
     it('should return last item in the array', function() {
       const arr = [1, 2, 3];
       const result = _.last(arr);
@@ -50,10 +50,10 @@ describe('_', function() {
       expect(result).to.eql([3, 4, 5]);
     });
   });
+
+  // EACH
+
   describe('#each', function() {
-    it('is a function', function() {
-      expect(_.each).to.be.a('function');
-    });
     it('should count list items', function() {
       const list = ['a', 'b', 'c', 'd', 'e'];
       let counter = 0;
@@ -99,10 +99,10 @@ describe('_', function() {
       expect(thirdCall).to.be.eql(context);
     });
   });
+
+  // INDEXOF
+
   describe('#indexOf', function() {
-    it('is a function', function() {
-      expect(_.indexOf).to.be.a('function');
-    });
     it('should return index value passed', function() {
       let result = _.indexOf([1, 2, 3], 3);
       expect(result).to.equal(2);
@@ -122,10 +122,10 @@ describe('_', function() {
       expect(result).to.equal(4);
     });
   });
+
+  // FILTER
+
   describe('#filter', function() {
-    it('is a function', function() {
-      expect(_.filter).to.be.a('function');
-    });
     it('should return an array', function() {
       const result = _.filter();
       expect(result).to.be.an('array');
@@ -155,10 +155,10 @@ describe('_', function() {
       expect(result).to.eql([2, 4, 6]);
     });
   });
+
+  // REJECT
+
   describe('#reject', function() {
-    it('is a function', function() {
-      expect(_.reject).to.be.a('function');
-    });
     it('should return an array', function() {
       const result = _.reject();
       expect(result).to.be.an('array');
@@ -183,10 +183,10 @@ describe('_', function() {
       expect(result).to.eql([1, 3, 5]);
     });
   });
+
+  // UNIQ
+
   describe('#uniq', function() {
-    it('is a function', function() {
-      expect(_.uniq).to.be.a('function');
-    });
     it('should return an array', function() {
       const result = _.uniq();
       expect(result).to.be.an('array');
@@ -196,10 +196,10 @@ describe('_', function() {
       expect(result).to.be.eql([1, 2, 4, 3]);
     });
   });
+
+  // MAP
+
   describe('#map', function() {
-    it('is a function', function() {
-      expect(_.map).to.be.a('function');
-    });
     it('should return an array', function() {
       const arr = [1, 2, 3];
       const iteratee = function() {
@@ -225,10 +225,10 @@ describe('_', function() {
       expect(result).to.eql([]);
     });
   });
+
+  // CONTAINS
+
   describe('#contains', function() {
-    it('is a function', function() {
-      expect(_.contains).to.be.a('function');
-    });
     it('should return true if the array contains the parameter', function() {
       expect(_.contains([1, 2, 3], 3)).to.equal(true);
     });
@@ -240,10 +240,10 @@ describe('_', function() {
       expect(_.contains([1, 2, 3], 1, 0)).to.equal(true);
     });
   });
+
+  // PLUCK
+
   describe('#pluck', function() {
-    it('is a function', function() {
-      expect(_.pluck).to.be.a('function');
-    });
     it('should extract a list of property values', function() {
       const stooges = [{
         name: 'moe',
@@ -258,10 +258,10 @@ describe('_', function() {
       expect(_.pluck(stooges, 'name')).to.eql(['moe', 'larry', 'curly']);
     });
   });
+
+  // REDUCE
+
   describe('#reduce', function() {
-    it('is a function', function() {
-      expect(_.reduce).to.be.a('function');
-    });
     it('should reduce an array to a single value by accumulation and iteratee', function() {
       expect(_.reduce(['w', 'o', 'r', 'd'], function(memo, str) {
         return memo + str;
@@ -296,10 +296,10 @@ describe('_', function() {
       }, 0)).to.equal(15);
     });
   });
+
+  // EVERY
+
   describe('#every', function() {
-    it('is a function', function() {
-      expect(_.every).to.be.a('function');
-    });
     it('should return true if all list values pass predicate test', function() {
       expect(_.every([2, 4, 6], function(num) {
         return num % 2 == 0;
@@ -329,10 +329,10 @@ describe('_', function() {
       expect(thirdCall).to.be.eql(context);
     });
   });
+
+  // SOME
+
   describe('#some', function() {
-    it('is a function', function() {
-      expect(_.some).to.be.a('function');
-    });
     it('should return true if any list values pass predicate truth test', function() {
       expect(_.some([2, 5, 7], function(num) {
         return num % 2 === 0;
@@ -362,10 +362,10 @@ describe('_', function() {
       expect(thirdCall).to.be.eql(context);
     });
   });
+
+  // EXTEND
+
   describe('#extend', function() {
-    it('is a function', function() {
-      expect(_.extend).to.be.a('function');
-    });
     it('should shallow copy source properties to destination object', function() {
       expect(_.extend({
           a: 'apple'
@@ -401,10 +401,10 @@ describe('_', function() {
       expect(_.extend(destination, source1, source2, source3)).to.eql(expected);
     });
   });
+
+  // DEFAULTS
+
   describe('#defaults', function() {
-    it('is a function', function() {
-      expect(_.defaults).to.be.a('function');
-    });
     it('should fill in undefined properties in object with first value in following list of defaults objects', function() {
       const apple = {
         colour: 'green'
@@ -419,10 +419,10 @@ describe('_', function() {
       })).to.eql(expected);
     });
   });
+
+  // ONCE
+
   describe('#once', function() {
-    it('is a function', function() {
-      expect(_.once).to.be.a('function');
-    });
     it('function should only be called once', function() {
       const spy = sinon.spy();
       const testLimit = _.once(spy);
@@ -436,10 +436,10 @@ describe('_', function() {
       expect(spy.callCount).to.equal(1);
     });
   });
+
+  // SHUFFLE
+
   describe('#shuffle', function() {
-    it('is a function', function() {
-      expect(_.shuffle).to.be.a('function');
-    });
     it('should return a shuffled copy of list using Fisher-Yates shuffle if list is an array', function() {
       const list = [1, 2, 3, 4, 5, 6];
       const output = _.shuffle(list);
@@ -460,10 +460,10 @@ describe('_', function() {
       expect(output).to.have.members(listValues);
     });
   });
+
+  // INVOKE
+
   describe('#invoke', function() {
-    it('is a function', function() {
-      expect(_.invoke).to.be.a('function');
-    });
     it('should call the method on every element of the list', function() {
       const list = [
         [5, 1, 7],
@@ -501,14 +501,13 @@ describe('_', function() {
       expect(actual).to.deep.equal(expected);
     });
   });
+
+  // DELAY
+
   describe('#delay', function() {
     let spy;
     beforeEach(function() {
       spy = sinon.spy();
-    });
-
-    it('is a function', function() {
-      expect(_.delay).to.be.a('function');
     });
     it('should run the function after wait has passed', function() {
       const clock = sinon.useFakeTimers();
@@ -528,10 +527,10 @@ describe('_', function() {
       ]);
     });
   });
+
+  // INTERSECTION
+
   describe('#intersection', function() {
-    it('is a function', function() {
-      expect(_.intersection).to.be.a('function');
-    });
     it('should compute the list of values that are the intersection of all the arrays and returns them in an array', function() {
       expect(_.intersection([1, 2, 3], [2, 6, 7])).to.be.an('array');
       expect(_.intersection([1, 2, 3], [2, 6, 7])).to.eql([2]);
@@ -559,20 +558,20 @@ describe('_', function() {
       expect(_.flatten([1, [2], [3, [[4]]]], true)).to.eql([1, 2, 3, [[4]]]);
     });
   });
+
+  // SORTEDINDEX
+
   describe('#sortedIndex', function() {
-    it('is a function', function() {
-      expect(_.sortedIndex).to.be.a('function');
-    });
     it('should use binary search to determine the index at which value should be inserted into list', function() {
       const list = [10, 20, 30, 40, 50];
       const value = 35;
       expect(_.sortedIndex(list, value)).to.eql(3);
     });
   });
+
+  // ZIP
+
   describe('#zip', function() {
-    it('is a function', function() {
-      expect(_.zip).to.be.a('function');
-    });
     it('should merge together the values of each of the arrays with the values at the corresponding position', function() {
       const output = [
         ['moe', 30, true],
@@ -582,10 +581,10 @@ describe('_', function() {
       expect(_.zip(['moe', 'larry', 'curly'], [30, 40, 50], [true, false, false])).to.eql(output);
     });
   });
+
+  // SORTBY
+
   describe('#sortBy', function() {
-    it('is a function', function() {
-      expect(_.sortBy).to.be.a('function');
-    });
     it('should return a (stably) sorted copy of the list, ranked in ascending order by the results of running each value though the iteratee', function() {
       const list = [1, 2, 3, 4, 5, 6];
       const iteratee = function(num) {
@@ -595,6 +594,9 @@ describe('_', function() {
       expect(_.sortBy(list, iteratee)).to.eql(expected);
     });
   });
+
+  // MEMOIZE
+
   describe('#memoize', function() {
     let multiply, memoMultiply;
       beforeEach(function() {
@@ -603,9 +605,6 @@ describe('_', function() {
         };
         memoMultiply = _.memoize(multiply);
       });
-    it('is a function', function() {
-        expect(_.memoize).to.be.a('function');
-    });
     it('should memoize a given function by caching the computed result', function() {
       expect(multiply(1, 2)).to.equal(2);
       expect(memoMultiply(1, 2)).to.equal(2);
